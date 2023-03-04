@@ -30,7 +30,7 @@
         repo: deb https://download.docker.com/linux/ubuntu jammy stable
         state: present
 
-    - name: Update apt cache and install Docker Engine, containerd, and Docker Compose
+    - name: Install Docker Engine, containerd, and Docker Compose
       apt:
         name:
           - docker-ce
