@@ -12,6 +12,7 @@
           - software-properties-common
         state: latest
         update_cache: true
+      when_changed: false
 
     - name: Add GPG apt Key for Docker
       ansible.builtin.apt_key: 
