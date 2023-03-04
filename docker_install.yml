@@ -20,8 +20,8 @@
     
     - name: Add Docker Repository
       ansible.builtin.apt_repository:
-      repo: "deb https://download.docker.com/linux/ubuntu"
-      state: present
+        repo: "deb https://download.docker.com/linux/ubuntu"
+        state: present
 
     - name: Update apt cache and install Docker Engine, containerd, and Docker Compose
       apt:
