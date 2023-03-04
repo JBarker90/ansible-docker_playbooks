@@ -1,6 +1,14 @@
 ---
 - hosts: all
   become: true
+  pre_tasks:
+    - name: Update repo cache (Ubuntu)
+      apt: 
+        update_cache: yes
+      changed_when: false
+
+- hosts: all
+  become: true
   tasks:
     - name: Install required system packages
       apt:
@@ -11,7 +19,6 @@
           - gnupg
           - software-properties-common
         state: latest
-        update_cache: yes
 
     - name: Add GPG apt Key for Docker
       ansible.builtin.apt_key: 
@@ -32,4 +39,3 @@
           - docker-buildx-plugin
           - docker-compose-plugin
         state: latest
-        update_cache: yes
