@@ -10,5 +10,5 @@
     - name: Add Your user to Docker group
       ansible.builtin.user:
         name: jonathan
-        group: docker
+        groups: docker
         append: yes
