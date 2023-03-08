@@ -10,7 +10,7 @@ This is a repository for Ansible playbooks that will install and configure Docke
 private_key_file = "~/.ssh/example_key"
 ```
 
-2. Add the target IPs that you want Ansible to change.
+2. Add the target IPs to the `inventory` file that you want Ansible to change.
 
 3. Run `ping.yml` playbook to ping all hosts to test connection
 
