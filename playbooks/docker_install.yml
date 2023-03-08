@@ -1,0 +1,41 @@
+---
+- hosts: all
+  become: true
+  pre_tasks:
+    - name: Update repo cache (Ubuntu)
+      apt: 
+        update_cache: yes
+      changed_when: false
+
+- hosts: all
+  become: true
+  tasks:
+    - name: Install required system packages
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg
+          - software-properties-common
+        state: latest
+
+    - name: Add GPG apt Key for Docker
+      ansible.builtin.apt_key: 
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+    
+    - name: Add Docker Repository
+      ansible.builtin.apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu jammy stable
+        state: present
+
+    - name: Install Docker Engine, containerd, and Docker Compose
+      apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+        state: latest
