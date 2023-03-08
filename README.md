@@ -36,7 +36,8 @@ ansible-playbook --ask-become-pass playbooks/user-modify_docker.yml
 
 ```
 ansible-playbook --ask-become-pass [playbooks/<file.yml>]
-
+```
+```
 jonathan@dockerhost-01:~/ansible-docker_playbooks$ ansible-playbook --ask-become-pass playbooks/docker_install.yml
 BECOME password:
 
