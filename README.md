@@ -70,7 +70,7 @@ PLAY RECAP *********************************************************************
 192.168.30.23              : ok=7    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-# Notes & Gotchyas
+# Notes
 
 - At the time of this writing, these playbooks will only install Docker on Ubuntu 22.04. Eventually it will be updated to run on RHEL derivatives like AlmaLinux and Rocky Linux.
 
