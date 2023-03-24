@@ -9,7 +9,7 @@
     
     - name: Add Your user to Docker group
       ansible.builtin.user:
-        name: jonathan
+        name: "{{ target_user }}"
         groups: docker
         append: yes
         state: present
