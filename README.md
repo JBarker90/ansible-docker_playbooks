@@ -21,13 +21,13 @@ ansible-playbook playbooks/ping.yml
 4. Run `docker_install.yml` to install Docker on your target hosts.
 
 ```
-ansible-playbook --ask-become-pass playbooks/docker_install.yml
+ansible-playbook playbooks/docker_install.yml
 ```
 
 5. (Optional) You can run `user-modify_docker.yml` to create a Docker group and add your admin user (on target) to it. This is to avoid the need of running `sudo` every time you use Docker CLI.
 
 ```
-ansible-playbook --ask-become-pass playbooks/user-modify_docker.yml
+ansible-playbook playbooks/user-modify_docker.yml
 ```
 
 # Usage Example
