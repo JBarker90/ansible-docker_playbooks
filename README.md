@@ -12,19 +12,32 @@ private_key_file = "~/.ssh/example_key"
 
 2. Add the target IPs to the `inventory` file that you want Ansible to change.
 
-3. Run `ping.yml` playbook to ping all hosts to test connection
+3. Copy the example `example.yml` file located in `~/ansible-docker_playbooks/host_vars` and add your specific values for your target node you want to update.
+
+```
+cd ~/ansible-docker_playbook/host_vars
+```
+```
+cp -av example.yml <destination_IP>.yml
+```
+- Example:
+```
+target_user: username
+```
+
+4. Run `ping.yml` playbook to ping all hosts to test connection
 
 ```
 ansible-playbook playbooks/ping.yml
 ```
 
-4. Run `docker_install.yml` to install Docker on your target hosts.
+5. Run `docker_install.yml` to install Docker on your target hosts.
 
 ```
 ansible-playbook playbooks/docker_install.yml
 ```
 
-5. (Optional) You can run `user-modify_docker.yml` to create a Docker group and add your admin user (on target) to it. This is to avoid the need of running `sudo` every time you use Docker CLI.
+6. (Optional) You can run `user-modify_docker.yml` to create a Docker group and add your admin user (on target) to it. This is to avoid the need of running `sudo` every time you use Docker CLI.
 
 ```
 ansible-playbook playbooks/user-modify_docker.yml
