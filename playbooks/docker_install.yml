@@ -1,6 +1,7 @@
 ---
 - hosts: all
   become: true
+  remote_user: "{{ target_user }}"
   pre_tasks:
     - name: Update repo cache (Ubuntu)
       apt: 
@@ -9,6 +10,7 @@
 
 - hosts: all
   become: true
+  remote_user: "{{ target_user }}"
   tasks:
     - name: Install required system packages
       apt:
