@@ -1,6 +1,7 @@
 ---
 - hosts: all
   become: true
+  remote_user: "{{ target_user }}"
   tasks:
     - name: Create Docker group
       ansible.builtin.group:
@@ -9,7 +10,7 @@
     
     - name: Add Your user to Docker group
       ansible.builtin.user:
-        name: jonathan
+        name: "{{ target_user }}"
         groups: docker
         append: yes
         state: present
