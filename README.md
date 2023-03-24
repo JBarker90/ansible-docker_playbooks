@@ -35,7 +35,7 @@ ansible-playbook playbooks/user-modify_docker.yml
 - NOTE: Run `ansible-playbooks` command from the root directory of the project. All playbooks will be found in `ansible-docker_playbooks/playbooks`
 
 ```
-ansible-playbook --ask-become-pass [playbooks/<file.yml>]
+ansible-playbook [playbooks/<file.yml>]
 ```
 ```
 jonathan@dockerhost-01:~/ansible-docker_playbooks$ ansible-playbook --ask-become-pass playbooks/docker_install.yml
@@ -74,6 +74,7 @@ PLAY RECAP *********************************************************************
 
 - At the time of this writing, these playbooks will only install Docker on Ubuntu 22.04. Eventually it will be updated to run on RHEL derivatives like AlmaLinux and Rocky Linux.
 
-- You will need to use `--ask-become-pass` and supply `sudo` password when running `docker_install.yml` and `user-modify_docker.yml`.
+- The `remote_user` variable in the host variable file will be the user that Ansible will be using to run commands. So make sure that this user already has `sudo` privileges.
+    - This will also be the same user the `user-modify_docker.yml` will modify. So be sure that this user is the one that you want added to the Docker group.
 
 - At this time, these will only install the Docker Engine, Containerd, and Docker Compose. It will NOT install and configure a Kubernetes cluster. 
